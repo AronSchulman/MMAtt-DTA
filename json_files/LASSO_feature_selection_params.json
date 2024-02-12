@@ -1,0 +1,10 @@
+{
+    "proteins" : ["enzyme", "GPCR", "ion_channel", "kinase", "nuclear_receptor", "transporter"],
+    "n_iterations" : 2,
+    "n_features_to_select" : 1000,
+    "tolerance" : 0.5,
+    "num_folds" : 5,
+    "input_path" : "Path to data not including the filename. The filenames should start with the protein names listed above and end with _lasso_input.csv",
+    "save_path" : ".",
+    "verbose" : 1
+}
