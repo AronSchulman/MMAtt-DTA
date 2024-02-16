@@ -41,15 +41,15 @@ def merge_protein_features(dfs):
     return df_merged.drop("uniprot_id", axis=1)
 
 def get_protein_features(prot, protein_class):
-    df_sequence_based = process_protein_dataframe(prot, "proper_data/protein_sequence_based_features.csv")
-    df_zernike = process_protein_dataframe(prot, "proper_data/zernike_descriptors.csv")
-    df_subclass = process_protein_dataframe(prot, f"proper_data/subclass_data/{protein_class}_subclass_labels.csv")
+    df_sequence_based = process_protein_dataframe(prot, "../data/protein_sequence_based_features.csv")
+    df_zernike = process_protein_dataframe(prot, "../data/zernike_descriptors.csv")
+    df_subclass = process_protein_dataframe(prot, f"../data/subclass_data/{protein_class}_subclass_labels.csv")
     
     return merge_protein_features([df_sequence_based, df_zernike, df_subclass])
 
 def get_selected_features(df_comp, df_prot, protein_class):
     df = pd.concat([df_comp, df_prot], axis=1)
-    df_feature_names = pd.read_csv(f"proper_data/feature_selections/{protein_class}_selected_features.csv")
+    df_feature_names = pd.read_csv(f"../data/feature_selections/{protein_class}_selected_features.csv")
     vals = df_feature_names["feature"].values
     return df[vals]  
         
