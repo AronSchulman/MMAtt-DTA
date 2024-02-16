@@ -1,3 +1,4 @@
+import argparse
 import pandas as pd
 import numpy as np
 import torch
@@ -11,14 +12,18 @@ from model import HalfBlock, AttentionDTINN
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 def main():
-
-    df_user_input = pd.read_csv("scrap_data/user_input.csv").dropna()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-i", "--input_path", action="store", help="Provide user input file path.", default="../data/user_input.csv")
+    parser.add_argument("-j", "--jsonfile_path", action="store", help="Provide params.json file path.", default="../json_files/model_config_params.json")
+    parser.add_argument("-m", "--model_path", action="store", help="Provide model directory path to the directory containing 'pchembl_models' and 'interaction_score_models' directories.", default="../models")
+    args = parser.parse_args()
+    df_user_input = pd.read_csv(args.input_path).dropna()
     
     cols = list(df_user_input.columns)
     cols.append("prediction")
     df_final = pd.DataFrame(columns=cols).dropna(axis=1, how='all') # dropna to avert warning of concatenation to empty dataframes
     
-    with open('json_files/model_config_params.json', 'r') as json_file: # config for model architecture & hyperparams
+    with open(args.jsonfile_path, 'r') as json_file: # config for model architecture & hyperparams
         cfg_all = json.load(json_file)
     
     for prot in df_user_input.protein_class.unique(): # process by protein class
@@ -40,7 +45,7 @@ def main():
             model_prot = HalfBlock(shapes[2], shapes[3], cfg, "protein").to(device)
             model_combined = AttentionDTINN(cfg, model_comp, model_prot).to(device)
     
-            weights_dir = f"models/{input_line.model_type}_models/{input_line.protein_class}"
+            weights_dir = f"{args.model_path}/{input_line.model_type}_models/{input_line.protein_class}"
             ensemble_preds = []
             for i in range(5):
                 with open(f"{weights_dir}/model_{i}/dict_checkpoint.pkl", "rb") as f:

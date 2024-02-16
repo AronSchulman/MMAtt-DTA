@@ -1,5 +1,5 @@
 {
-    "proteins" : ["enzyme", "GPCR", "ion_channel", "kinase", "nuclear_receptor", "transporter"],
+    "proteins" : ["enzyme", "gpcr", "ion_channel", "kinase", "nuclear_receptor", "transporter"],
     "n_iterations" : 2,
     "n_features_to_select" : 1000,
     "tolerance" : 0.5,

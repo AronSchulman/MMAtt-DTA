@@ -1,3 +1,4 @@
+import argparse
 import json
 import numpy as np
 import pandas as pd
@@ -7,8 +8,11 @@ from sklearn.linear_model import LassoCV
 from joblib import parallel_backend
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-j", "--jsonfile_path", action="store", help="Provide params.json file path.", default="../json_files/LASSO_feature_selection_params.json")
+    args = parser.parse_args()
     try:
-        with open('json_files/LASSO_feature_selection_params.json', 'r') as json_file:
+        with open(args.jsonfile_path, 'r') as json_file:
             cfg = json.load(json_file)
 
         proteins = cfg["proteins"]
@@ -58,7 +62,7 @@ def main():
             except FileNotFoundError:
                 print("Could not open file", f"{cfg['input_path']}/{prot}_lasso_input.csv")
     except FileNotFoundError:
-        print("Could not open file json_files/LASSO_feature_selection_params.json")
+        print(f"Could not open file {args.file_path}")
 
 main()
 
