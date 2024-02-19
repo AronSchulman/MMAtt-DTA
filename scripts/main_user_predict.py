@@ -13,7 +13,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--input_path", action="store", help="Provide user input file path.", default="../data/user_input.csv")
+    parser.add_argument("-i", "--input_path", action="store", help="Provide user data input file path.", default="../data/user_input.csv")
     parser.add_argument("-j", "--jsonfile_path", action="store", help="Provide params.json file path.", default="../json_files/model_config_params.json")
     parser.add_argument("-m", "--model_path", action="store", help="Provide model directory path to the directory containing 'pchembl_models' and 'interaction_score_models' directories.", default="../models")
     args = parser.parse_args()

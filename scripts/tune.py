@@ -11,7 +11,9 @@ from typing import Optional, Any, Union, Callable
 from lifelines.utils import concordance_index
 import wandb
 import random
+import pickle
 import math
+import json
 import os
 
 import torch
@@ -478,6 +480,8 @@ def main():
     ray.init(num_cpus=40, num_gpus=4)
     
     cfg = {
+        "num_iterations" : 50,
+        "HB_grace_period" : 5,
         "epochs" : 50,
         "loss_fn" : "LogCoshLoss()",
         "lr" : tune.loguniform(1e-6, 1e-2),
@@ -520,7 +524,7 @@ def main():
     res_directory = "./HEBO_ray_results"
     max_concurrent = 1
     algo = HEBOSearch(random_state_seed=160801, max_concurrent=max_concurrent)
-    scheduler = AsyncHyperBandScheduler(grace_period=5)
+    scheduler = AsyncHyperBandScheduler(grace_period=cfg["HB_grace_period"])
     reporter = CLIReporter(max_report_frequency=600)
     
     if tune.Tuner.can_restore(restore_path):
@@ -534,7 +538,7 @@ def main():
             mode="min",
             search_alg=algo,
             scheduler=scheduler,
-            num_samples=50
+            num_samples=cfg["num_iterations"]
             ),
             run_config=air.RunConfig(
             local_dir=res_directory,
