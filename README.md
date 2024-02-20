@@ -46,7 +46,7 @@ For the protein descriptors, the user is limited to the pre-calculated values fo
 
 ## Reproducing thesis results
 
-For reproducing the results in the thesis, we provide the following scripts:
+For reproducing some of the results in the thesis, we provide the following scripts:
 ```
 train.py
 tune.py
