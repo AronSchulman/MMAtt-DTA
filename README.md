@@ -5,7 +5,7 @@ Code repository for the work "Attention-based method to predict drug-target inte
 
 ## User instructions
 
-To use the models, you need to download them from Zenodo: [add link]. Place the downloaded directory in the root of this repository.
+To use the models, you need to download them from Zenodo: [add link]. All the data used for model training and testing are also found there. Place the downloaded directory in the root of this repository.
 
 The relevant script for users is `src/main_user_predict.py`.
 
