@@ -5,7 +5,7 @@ Code repository for the work "Attention-based method to predict drug-target inte
 
 ## User instructions
 
-To use the models, you need to download them from Zenodo: [add link]. All the data used for model training and testing are also found there. Place the downloaded directory in the root of this repository.
+To use the models, you need to download them from Zenodo: [add link]. All the data used for model training and testing are also found there. Place the downloaded `data` directory in the root of this repository.
 
 The relevant script for users is `src/main_user_predict.py`.
 
@@ -30,6 +30,8 @@ You need to provide the path to your input file when running the script:
 ```
 python main_user_predict.py -i /path/to/user_input.csv
 ```
+
+It is recommended to run the prediction on a GPU-equipped machine.
 
 After execution, the script produces a `model_output_predictions.csv` file in the same directory as the executed script. The file is identical to the input file, with the addition of a `prediction` column that contains the pairwise affinity predictions in pchembl or interaction score format, depending on your specification.
 
