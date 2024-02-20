@@ -1,7 +1,8 @@
-# AttentionDTI
+# MMADTA - Multimodal Attention Drug-Target Affinity prediction
 
-Code repository for the work "Attention-based method to predict drug-target interactions across seven target superfamilies". Link to master's thesis: https://urn.fi/URN:NBN:fi:aalto-202401282133
-![workflow](https://github.com/AronSchulman/AttentionDTI/assets/63584295/01bb797a-24b3-41e6-8fbf-cfa5fb73e08b)
+Code repository for the work "Attention-based method to predict drug-target interactions across seven protein classes". Link to master's thesis: https://urn.fi/URN:NBN:fi:aalto-202401282133
+![workflow](https://github.com/AronSchulman/MMADTA/assets/63584295/81e0224f-a6e3-4fc1-9d5c-8b727eda8229)
+
 
 ## User instructions
 
