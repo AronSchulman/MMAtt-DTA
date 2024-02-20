@@ -9,7 +9,7 @@ from joblib import parallel_backend
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-j", "--jsonfile_path", action="store", help="Provide params.json file path.", default="../json_files/LASSO_feature_selection_params.json")
+    parser.add_argument("-j", "--jsonfile_path", action="store", help="Provide LASSO params.json file path.", default="../json_files/LASSO_feature_selection_params.json")
     args = parser.parse_args()
     try:
         with open(args.jsonfile_path, 'r') as json_file:

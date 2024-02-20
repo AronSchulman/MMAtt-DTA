@@ -3,8 +3,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import numpy as np
-from sklearn.preprocessing import normalize, scale, StandardScaler, PowerTransformer
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from scipy.stats import spearmanr
 from typing import Optional, Any, Union, Callable
@@ -21,19 +19,14 @@ import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader
 from torch import Tensor
 from torch.nn.parameter import Parameter
-from torch.utils.data.distributed import DistributedSampler
-from torch.nn.parallel import DistributedDataParallel
 import torch.distributed as dist
 
 import ray
-from ray import air, train, tune
+from ray import train
 from ray.air import session, ScalingConfig, RunConfig, CheckpointConfig
 import ray.train.torch
 from ray.train.torch import TorchTrainer, TorchConfig, TorchCheckpoint
-from ray.air.checkpoint import Checkpoint
-from ray.air.integrations.wandb import setup_wandb, WandbLoggerCallback
-from ray.tune import Trainable, CLIReporter
-from ray.tune.logger import DEFAULT_LOGGERS
+from ray.air.integrations.wandb import setup_wandb
 from pprint import pprint
 
 def set_seed(seed):
@@ -484,6 +477,7 @@ def main():
     parser.add_argument("-p", "--protein_class", action="store", help="Provide a protein class for the model to be trained on.")
     parser.add_argument("-t", "--train_file", action="store", help="Provide train data file path.")
     parser.add_argument("-v", "--val_file", action="store", help="Provide validation data file path.")
+    parser.add_argument("-j", "--jsonfile_path", action="store", help="Provide model config params.json file path.", default="../json_files/model_config_params.json")
     args = parser.parse_args()
     
     wandb.login()
@@ -491,7 +485,7 @@ def main():
         ray.shutdown()
     ray.init(num_cpus=40, num_gpus=4)
     
-    with open('json_files/model_config_params.json', 'r') as json_file: # config for model architecture & hyperparams
+    with open(args.jsonfile_path, 'r') as json_file: # config for model architecture & hyperparams
         cfg_all = json.load(json_file)
     
     cfg = cfg_all[args.protein_class]
