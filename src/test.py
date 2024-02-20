@@ -83,7 +83,7 @@ def main():
     parser.add_argument("-i", "--input_path", action="store", help="Provide test data input file path.")
     parser.add_argument("-j", "--jsonfile_path", action="store", help="Provide model config params.json file path.", default="../json_files/model_config_params.json")
     parser.add_argument("-l", "--label_type", action="store", help="Provide 'pchembl' or 'interaction_score' label type.", default="pchembl")
-    parser.add_argument("-m", "--model_path", action="store", help="Provide model directory path to the directory containing 'pchembl_models' and 'interaction_score_models' directories.", default="../models")
+    parser.add_argument("-m", "--model_path", action="store", help="Provide model directory path to the directory containing 'pchembl_models' and 'interaction_score_models' directories.", default="../data/models")
     parser.add_argument("-o", "--plot", action="store", help="Flag for plotting.", default=False)
     args = parser.parse_args()
     df_test = pd.read_csv(args.input_path).dropna()
