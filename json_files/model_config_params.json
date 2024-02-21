@@ -1,5 +1,6 @@
 {
     "enzyme" : {
+        "protein" : "enzyme",
         "epochs" : 500,
         "max_patience" : 10,
         "n_ensemble" : 5,
@@ -20,6 +21,7 @@
         "embed_sigma_protein" : 0.03219521579246971
     },
     "epigenetic_regulator" : {
+        "protein" : "epigenetic_regulator",
         "epochs" : 500,
         "max_patience" : 10,
         "n_ensemble" : 5,
@@ -40,6 +42,7 @@
         "embed_sigma_protein" : 51.413707409660475
     },
     "gpcr" : {
+        "protein" : "gpcr",
         "epochs" : 500,
         "max_patience" : 10,
         "n_ensemble" : 5,
@@ -60,6 +63,7 @@
         "embed_sigma_protein" : 0.03219521579246971
     },
     "ion_channel" : {
+        "protein" : "ion_channel",
         "epochs" : 500,
         "max_patience" : 10,
         "n_ensemble" : 5,
@@ -80,6 +84,7 @@
         "embed_sigma_protein" : 1.1101324117297011
     },
     "kinase" : {
+        "protein" : "kinase",
         "epochs" : 500,
         "max_patience" : 10,
         "n_ensemble" : 5,
@@ -100,6 +105,7 @@
         "embed_sigma_protein" : 15.527592960515731
     },
     "nuclear_receptor" : {
+        "protein" : "nuclear_receptor",
         "epochs" : 500,
         "max_patience" : 10,
         "n_ensemble" : 5,
@@ -120,7 +126,8 @@
         "embed_sigma_protein" : 0.15023160676636654
     },
     "transporter" : {
-        "epochs" : 500,
+        "protein" : "transporter",
+        "epochs" : 5,
         "max_patience" : 10,
         "n_ensemble" : 5,
         "loss_fn" : "LogCoshLoss()",
@@ -138,5 +145,26 @@
         "embed_dim_periodic_protein" : 128,
         "embed_sigma_compound" : 0.014371613713553996,
         "embed_sigma_protein" : 1.1790690536923336
+    },
+    "kinase_davis_dtitr" : {
+        "protein" : "kinase",
+        "epochs" : 500,
+        "max_patience" : 100,
+        "n_ensemble" : 1,
+        "loss_fn" : "LogCoshLoss()",
+        "lr" : 0.0000100124793723624,
+        "weight_decay" : 0.0012459932534570162,
+        "batch_size" : 4,
+        "enc_FF_dim_half" : 1024,
+        "att_dropout_half" : 0.02654347975960888,
+        "att_layers_half" : 1,
+        "enc_FF_dim_full" : 512,
+        "att_dropout_full" : 0.030102220619247375,
+        "att_layers_full" : 1,
+        "embed_dim" : 512,
+        "embed_dim_periodic_compound" : 1024,
+        "embed_dim_periodic_protein" : 128,
+        "embed_sigma_compound" : 0.05599059265860792,
+        "embed_sigma_protein" : 96.29442249789116
     }
 }

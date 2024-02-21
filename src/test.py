@@ -15,6 +15,9 @@ from model import HalfBlock, AttentionDTINN, LogCoshLoss
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
+### This script can be used to reproduce the following results: validation, independent testing and davis/dtitr. ###
+### As a default, it reproduces the davis/dtitr results. ###
+
 def test_loop(dataloader, model, loss_fn):
     model.eval()
     preds = torch.empty(0, dtype=torch.int64, device=device)
@@ -79,20 +82,22 @@ def plot_correlation(ys, preds, interaction_score=False):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-p", "--protein_class", action="store", help="Provide protein class to be tested.")
-    parser.add_argument("-i", "--input_path", action="store", help="Provide test data input file path.")
+    parser.add_argument("-p", "--protein_class", action="store", help="Provide protein class to be tested.", default="kinase_davis_dtitr")
+    parser.add_argument("-i", "--input_path", action="store", help="Provide test data input file path.", default="../data/davis_dtitr_data/final_test_data_filtered_zernike.csv")
     parser.add_argument("-j", "--jsonfile_path", action="store", help="Provide model config params.json file path.", default="../json_files/model_config_params.json")
     parser.add_argument("-l", "--label_type", action="store", help="Provide 'pchembl' or 'interaction_score' label type.", default="pchembl")
-    parser.add_argument("-m", "--model_path", action="store", help="Provide model directory path to the directory containing 'pchembl_models' and 'interaction_score_models' directories.", default="../data/models")
+    parser.add_argument("-m", "--model_path", action="store", help="Provide model directory path to the directory containing 'pchembl_models' and 'interaction_score_models' directories.", default="../")
     parser.add_argument("-o", "--plot", action="store", help="Flag for plotting.", default=False)
     args = parser.parse_args()
     df_test = pd.read_csv(args.input_path).dropna()
     
-    with open(args.jsonfile_path, 'r') as json_file: # config for model architecture & hyperparams
+    with open(args["jsonfile_path"], 'r') as json_file: # config for model architecture & hyperparams
         cfg_all = json.load(json_file)
     config = cfg_all[args.protein_class]
-    
-    df_x = df_test.drop(["pchembl_value", "interaction_strength"], axis=1)
+    if args.protein_class == "kinase_davis_dtitr":
+        df_x = df_test.drop(["pchembl_value"], axis=1)
+    else:
+        df_x = df_test.drop(["pchembl_value", "interaction_strength"], axis=1)
     df_y = df_test.pchembl_value if args.label_type=="pchembl" else df_test.interaction_strength
     dataloader, shapes = prepare_dataloader(df_x, df_y, config)
     
@@ -103,8 +108,7 @@ def main():
     all_preds = []
     
     weights_dir = f"{args.model_path}/{args.label_type}_models/{args.protein_class}"
-    ensemble_preds = []
-    for i in range(5):
+    for i in range(config["n_ensemble"]):
         with open(f"{weights_dir}/model_{i}/dict_checkpoint.pkl", "rb") as f:
             checkpoint = pickle.load(f)
         model_combined.load_state_dict(checkpoint["model_weights"])
@@ -112,13 +116,14 @@ def main():
         all_preds.append(preds)
         print("----------------------")
 
-    print()
-    print("Final ensemble prediction results:")
-    print()
     ensemble_pred = np.mean(all_preds, axis=0)
-    print("Spearman correlation:", spearmanr(ensemble_pred, ys).correlation)
-    print("RMSE:", mean_squared_error(ys, ensemble_pred, squared=False))
-    print("C Index:", concordance_index(ys, ensemble_pred))
+    if config["n_ensemble"] > 1:
+        print()
+        print("Final ensemble prediction results:")
+        print()
+        print("Spearman correlation:", spearmanr(ensemble_pred, ys).correlation)
+        print("RMSE:", mean_squared_error(ys, ensemble_pred, squared=False))
+        print("C Index:", concordance_index(ys, ensemble_pred))
     
     
     if args.plot:

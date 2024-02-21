@@ -15,7 +15,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("-i", "--input_path", action="store", help="Provide user data input file path.", default="../example_input.csv")
     parser.add_argument("-j", "--jsonfile_path", action="store", help="Provide model config params.json file path.", default="../json_files/model_config_params.json")
-    parser.add_argument("-m", "--model_path", action="store", help="Provide model directory path to the directory containing 'pchembl_models' and 'interaction_score_models' directories.", default="../data/models")
+    parser.add_argument("-m", "--model_path", action="store", help="Provide model directory path to the directory containing 'pchembl_models' and 'interaction_score_models' directories.", default="../")
     args = parser.parse_args()
     df_user_input = pd.read_csv(args.input_path).dropna()
     
