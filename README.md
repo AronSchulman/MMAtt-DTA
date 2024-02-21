@@ -39,7 +39,7 @@ After execution, the script produces a `model_output_predictions.csv` file in th
 
 ### Optional
 
-You may provide paths to the model directory and the `model_config_params.json` file with flags `-m` and `-j`, respectively. However, if you do not modify file names and repository structure, the provided default values should work fine.
+You may provide paths to the model directory and the `model_config_params.json` file with flags `-m` and `-j`, respectively. However, if you do not modify file names and repository structure (except for adding the `model` directory from Zenodo to the root), the provided default values should work fine.
 
 ### Limitations
 
