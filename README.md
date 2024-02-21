@@ -7,7 +7,7 @@ Code repository for the work "Attention-based method to predict drug-target inte
 
 ## User instructions
 
-To use the models, you need to download them from Zenodo: [add link]. All the data used for model training and testing are also found there. Place the downloaded `data` and `models` directories in the root of this repository.
+To use the models, you need to download them from Zenodo: [add link]. All the data used for model training and testing are also found there. Place the downloaded `data`, `interaction_score_models` and `pchembl_models` directories in the root of this repository.
 
 The relevant script for users is `src/main_user_predict.py`.
 
@@ -39,7 +39,7 @@ After execution, the script produces a `model_output_predictions.csv` file in th
 
 ### Optional
 
-You may provide paths to the model directory and the `model_config_params.json` file with flags `-m` and `-j`, respectively. However, if you do not modify file names and repository structure (except for adding the `model` directory from Zenodo to the root), the provided default values should work fine.
+You may provide paths to the model directory and the `model_config_params.json` file with flags `-m` and `-j`, respectively. However, if you do not modify file names and repository structure (except for adding the two model directories from Zenodo to the root), the provided default values should work fine.
 
 ### Limitations
 
