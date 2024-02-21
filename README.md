@@ -65,4 +65,4 @@ matplotlib
 seaborn
 wandb
 ```
-Do be in touch in case of dependency issues or bugs.
+Do be in touch in case of dependency issues, bugs, and general enquiries about usage.
