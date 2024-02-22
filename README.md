@@ -44,7 +44,7 @@ You may provide paths to the model directory and the `model_config_params.json` 
 
 ### Limitations
 
-For the protein descriptors, the user is limited to the pre-calculated values found in `descriptor_data`. If the user supplies an unavailable protein, the descriptor values are filled with zeros. This is not a problem for the subclass label. However, for sequence-based and Zernike descriptors, this may negatively impact the prediction accuracy.
+For the protein descriptors, the user is limited to the pre-calculated values found in `descriptor_data`. If the user supplies an unavailable protein, the descriptor values are filled with zeros. This is not a problem for the subclass label. However, for sequence-based and Zernike descriptors, this may negatively impact the prediction accuracy. The available proteins can be found in the `descriptor_data` directory.
 
 ## Reproducing thesis results
 
