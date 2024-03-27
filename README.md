@@ -1,6 +1,10 @@
 # MMAtt-DTA: MultiModal Attention Drug-Target Affinity prediction
 
-Code repository for the work "Attention-based method to predict drug-target interactions across seven protein classes". Link to master's thesis: https://urn.fi/URN:NBN:fi:aalto-202401282133
+Code repository for the work "Attention-based method to predict drug-target interactions across seven protein classes".
+
+Link to master's thesis: https://urn.fi/URN:NBN:fi:aalto-202401282133
+
+Link to article preprint: https://doi.org/10.1101/2024.03.20.585893
 
 ![workflow](https://github.com/AronSchulman/MMAtt-DTA/assets/63584295/542ffe0e-8a78-4f53-82c4-e9efedbbba06)
 
