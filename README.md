@@ -11,7 +11,7 @@ Link to article preprint: https://doi.org/10.1101/2024.03.20.585893
 
 ## User instructions
 
-To use the models, you need to download them from Zenodo: https://zenodo.org/doi/10.5281/zenodo.10589695. Create a directory called `models` and place the downloaded `interaction_score_models` and `pchembl_models` directories in the `models` directory.
+To use the models, you need to download them from Zenodo: https://zenodo.org/doi/10.5281/zenodo.10589695. In the root of the repository, create a directory called `models`. Place the downloaded `interaction_score_models` and `pchembl_models` directories in the `models` directory.
 
 The relevant script for users is `src/main_user_predict.py`.
 
