@@ -57,6 +57,6 @@ def main():
         print("Done", prot)
     
     df_final = df_final.sort_index()
-    df_final.to_csv("model_output_predictions.csv", index=False)
+    df_final.to_csv("../model_output_predictions.csv", index=False)
     
 main()
