@@ -6,6 +6,8 @@ Link to article: https://doi.org/10.1093/bioinformatics/btae496
 
 Link to master's thesis: https://urn.fi/URN:NBN:fi:aalto-202401282133
 
+Try it out! https://mmatt-dta.serve.scilifelab.se/
+
 
 ![workflow](https://github.com/AronSchulman/MMAtt-DTA/assets/63584295/542ffe0e-8a78-4f53-82c4-e9efedbbba06)
 
