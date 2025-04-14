@@ -73,4 +73,4 @@ wandb
 ```
 
 All the relevant data used for model training and testing are found in the Zenodo repository mentioned above. 
-Do be in touch in case of dependency issues, bugs, and general enquiries about usage.
+Please open an issue in case of dependency problems, bugs, and general enquiries about usage.
