@@ -38,7 +38,7 @@ When you have the input file ready, upload it to the server and press 'Predict' 
 
 Please wait fo the predictions - the wait time depends on the size of the input file. When dealing with very large data, you may consider fragmenting the data to several input files.
 
-After execution, you may observe the predictions in the `results.csv`.
+After execution, you can observe the predictions in the `results.csv`.
 
 
 
