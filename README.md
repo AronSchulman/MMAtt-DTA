@@ -28,7 +28,7 @@ To make predictions, you need to provide a `.csv` file with the following four c
 
 Make sure the entries are comma-separated (and not e.g. semicolon(;)-separated).
 
-For best predictions, your uniprot IDs should be present in the `available_proteins.csv` file.
+For best predictions, your uniprot IDs should be present in the `available_proteins.csv` file, as these 1963 proteins have both Zernike and sequence-based protein features available.
 
 Values in the `protein_class` column should be one or more from the following: `[enzyme, epigenetic_regulator, gpcr, ion_channel, kinase, nuclear_receptor, transporter]`.
 
