@@ -30,7 +30,7 @@ To make predictions, you need to provide a `.csv` file with the following four c
 
 Make sure the entries are comma-separated (and not e.g. semicolon(;)-separated).
 
-The required protein identifier format is the UniProt ID (https://www.uniprot.org/). The UniProt IDs for your proteins should be present in the `supported_protein_targets.csv` file, as these proteins have both Zernike and sequence-based protein features available. There are 1963 available proteins in total, all of which are human proteins.
+The required protein identifier format is the UniProt ID (https://www.uniprot.org/). For best predictions, the UniProt IDs of your proteins should be present in the `supported_protein_targets.csv` file, as these proteins have both Zernike and sequence-based protein features available. There are 1963 available proteins in total, all of which are human proteins.
 
 Values in the `protein_class` column should be one or more from the following: `[enzyme, epigenetic_regulator, gpcr, ion_channel, kinase, nuclear_receptor, transporter]`. There is a separately trained model for each protein class for improved accuracy. Please refer to training details in the article for more information.
 
@@ -102,4 +102,4 @@ All the relevant data used for model training and testing are found in the Zenod
 ## Problems?
 
 Please observe the previously opened issues for some details about drug and protein featurization.
-Please open an issue or email at aron.schulman@helsinki.fi in case of dependency problems, bugs, and general enquiries about usage.
+Please open a new issue or email at aron.schulman@helsinki.fi in case of dependency problems, bugs, and general enquiries about usage.
