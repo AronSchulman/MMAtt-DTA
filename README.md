@@ -18,7 +18,7 @@ Try it out! https://mmatt-dta.serve.scilifelab.se/
 
 ![webserver](https://github.com/user-attachments/assets/e76a6797-19c2-4120-9721-abce30a9d53b)
 
-You can make direct affinity predictions for your drug-target pairs with ease online at https://mmatt-dta.serve.scilifelab.se/.
+You can predict binding affinities for your drug-target pairs with ease online at https://mmatt-dta.serve.scilifelab.se/.
 
 To make predictions, you need to provide a `.csv` file with the following four columns:
 * smiles
@@ -38,7 +38,7 @@ Values in the `model_type` column should be either `pchembl` or `interaction_sco
 
 When you have the input file ready, upload it to the server and press 'Predict' as seen in the figure above.
 
-Please wait fo the predictions - the wait time depends on the size of the input file. When dealing with very large data, you may consider fragmenting the data to several input files.
+Please wait for the predictions - the wait time depends on the size of the input file. When dealing with very large data, you may consider fragmenting the data to several input files.
 
 After execution, you can observe the predictions in the `results.csv`.
 
@@ -46,7 +46,7 @@ After execution, you can observe the predictions in the `results.csv`.
 
 ## Download the models for offline predictions
 
-To use the models offline, you can download them from Zenodo: https://zenodo.org/doi/10.5281/zenodo.10589695. In the root of the repository, create a directory called `models`. Place the downloaded `interaction_score_models` and `pchembl_models` directories in the `models` directory.
+To use the models offline, you can download them from Zenodo: https://zenodo.org/doi/10.5281/zenodo.10589695. In the root of this repository, create a directory called `models`. Place the downloaded `interaction_score_models` and `pchembl_models` directories in the `models` directory.
 
 The relevant script for users is `src/main_user_predict.py`.
 
