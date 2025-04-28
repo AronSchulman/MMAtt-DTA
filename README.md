@@ -95,6 +95,9 @@ matplotlib
 seaborn
 wandb
 ```
-All the relevant data used for model training and testing are found in the Zenodo repository mentioned above. 
-Please observe the previously opened issues for som details about drug and protein featurization.
+All the relevant data used for model training and testing are found in the Zenodo repository mentioned above.
+
+## Problems?
+
+Please observe the previously opened issues for some details about drug and protein featurization.
 Please open an issue in case of dependency problems, bugs, and general enquiries about usage.
