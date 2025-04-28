@@ -30,9 +30,9 @@ To make predictions, you need to provide a `.csv` file with the following four c
 
 Make sure the entries are comma-separated (and not e.g. semicolon(;)-separated).
 
-For best predictions, your uniprot IDs should be present in the `available_proteins.csv` file, as these 1963 proteins have both Zernike and sequence-based protein features available.
+The required protein identifier format is the UniProt ID (https://www.uniprot.org/). The UniProt IDs for your proteins should be present in the `supported_protein_targets.csv` file, as these proteins have both Zernike and sequence-based protein features available. There are 1963 available proteins in total, all of which are human proteins.
 
-Values in the `protein_class` column should be one or more from the following: `[enzyme, epigenetic_regulator, gpcr, ion_channel, kinase, nuclear_receptor, transporter]`.
+Values in the `protein_class` column should be one or more from the following: `[enzyme, epigenetic_regulator, gpcr, ion_channel, kinase, nuclear_receptor, transporter]`. There is a separately trained model for each protein class for improved accuracy. Please refer to training details in the article for more information.
 
 Values in the `model_type` column should be either `pchembl` or `interaction_score` depending on your preferred label type.
 
@@ -73,7 +73,7 @@ After execution, the model outputs a `model_output_predictions.csv` file in the 
 
 ### Limitations
 
-For the protein descriptors, the user is limited to the pre-calculated values found in `descriptor_data`. If the user supplies an unavailable protein, the descriptor values are filled with zeros. This is not a problem for the subclass label. However, for sequence-based and Zernike descriptors, this may negatively impact the prediction accuracy. The available proteins can be found in the `available_proteins.csv` file.
+For the protein descriptors, the user is limited to the pre-calculated values found in `descriptor_data`. If the user supplies an unavailable protein, the descriptor values are filled with zeros. This is not a problem for the subclass label. However, for sequence-based and Zernike descriptors, this may negatively impact the prediction accuracy. The available proteins can be found in the `supported_protein_targets.csv` file.
 
 If you wish for the addition of descriptors for your proteins, do be in touch with us.
 
@@ -102,4 +102,4 @@ All the relevant data used for model training and testing are found in the Zenod
 ## Problems?
 
 Please observe the previously opened issues for some details about drug and protein featurization.
-Please open an issue in case of dependency problems, bugs, and general enquiries about usage.
+Please open an issue or email at aron.schulman@helsinki.fi in case of dependency problems, bugs, and general enquiries about usage.
