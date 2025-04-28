@@ -38,7 +38,7 @@ Values in the `model_type` column should be either `pchembl` or `interaction_sco
 
 When you have the input file ready, upload it to the server and press 'Predict' as seen in the figure above.
 
-Please wait for the predictions - the wait time depends on the size of the input file. When dealing with very large data, you may consider fragmenting the data to several input files.
+Please wait for the predictions - the wait time depends on the size of the input file. When dealing with large data, you may consider fragmenting the data to several input files or downloading the models for local use (see below).
 
 After execution, you can observe the predictions in the `results.csv`.
 
