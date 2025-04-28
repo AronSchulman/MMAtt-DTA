@@ -6,6 +6,8 @@ Link to article: https://doi.org/10.1093/bioinformatics/btae496
 
 Link to master's thesis: https://urn.fi/URN:NBN:fi:aalto-202401282133
 
+Download the data: https://zenodo.org/doi/10.5281/zenodo.10589695
+
 Try it out! https://mmatt-dta.serve.scilifelab.se/
 
 
